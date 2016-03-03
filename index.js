@@ -10,8 +10,8 @@ app.get('/', function(req, res){
   res.sendFile(__dirname + '/index.html');
 });
 
-http.listen(3000, function(){
-  console.log('listening on *:3000');
+http.listen(process.env.PORT || 3000, function(){
+  console.log('listening');
 });
 
 io.on('connection',function(socket){
@@ -41,7 +41,7 @@ io.on('connection',function(socket){
         if(!sockets[socket.id]){
             sockets[socket.id] = data;
         }
-        
+
         if(users.indexOf(data.from)<0){
             users.push(data.from);
         }
