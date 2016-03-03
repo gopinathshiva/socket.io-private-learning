@@ -43,6 +43,9 @@
           position: relative;
           height: 100%;
       }
+      li.sender{
+          text-align: right;
+      }
     </style>
   </head>
   <body>
@@ -99,7 +102,7 @@
         };
 
         socket.emit('private message', data);
-            $('#messages') .append('<li>'+message+'</li>');
+            $('#messages') .append('<li class="sender">'+message+'</li>');
             $('#m').val('');
             data.message = '';
             socket.emit('user typing',data);
